@@ -1,0 +1,117 @@
+1.Write a Java Program to demonstrate a Generic Class.
+package Generic;
+
+public class GenericClass {
+	
+	private int d;
+	public GenericClass(int data) {
+		this.d=data;
+	}
+	public int GetData() {
+		return d;
+	}
+	public static void main(String[]args) {
+		GenericClass d1= new GenericClass(137);
+		System.out.println(d1.GetData());
+	}
+	
+
+}
+
+
+2.Write a Java Program to demonstrate Generic Method to check
+equality.
+
+
+package Generic;
+
+public class GenericMethod 
+{
+	public void equals(String d1,String d2) 
+	{
+		if(d1.equals(d2))
+		{
+		System.out.println(d1+"and"+d2+"are equal");
+		}
+		else
+		{
+			System.out.println(d1+"and"+d2+"are not equal");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		GenericMethod eq = new GenericMethod();
+		eq.equals("aman"+" "," amaan"+" ");
+
+
+	}
+
+
+}
+
+
+3.Write a generic method which prints sum of numbers using Upper
+Bounded
+
+
+package Generic;
+import java.util.*;
+public class UpperBounded {
+	public void sum(List<?extends Number> list)
+	{
+		double Sum=0;
+		for(Number no:list)
+		{
+			Sum+=no.doubleValue();
+		}
+		System.out.println("Sum "+Sum);
+	}
+	
+	public static void main(String []args) 
+	{
+		UpperBounded ub = new UpperBounded();
+		List<Integer> li=Arrays.asList(1,2,5,8);
+		ub.sum(li);
+	}
+}
+
+
+
+4.Write a generic method which prints elements to the list of number
+or Integer using Lower Bounded Wildcards.
+
+
+package Generic;
+import java.util.*;
+public class LowerBounded {
+	public void Sum(List<?super Integer> list)
+	{
+		System.out.println();
+	}
+	public static void main(String[] args) {
+		LowerBounded ub=new LowerBounded();
+		List lb=Arrays.asList(1,2,3,4);
+		System.out.println(lb);
+	}	
+}
+
+
+
+
+5. Write a generic method which prints items in the list using
+Unbounded Wildcards.
+
+package Generic;
+import java.util.*;
+
+public class Unbounded {
+	public void Sum(List<?> List)
+	{
+		System.out.println();
+	}
+	public static void main(String [] args) {
+		Unbounded ub=new Unbounded();
+		List lb=Arrays.asList(4,5,6,7,8);
+		System.out.println(lb);
+	}
+}
