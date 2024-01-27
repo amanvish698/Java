@@ -1,0 +1,374 @@
+1. Write a Java program to create a List containing a list of items of type String and use for- --
+each loop to print the items of the list.
+
+package practical_2;
+
+import java.util.*;
+
+public class Prac2 {
+    public static void main(String[] args) {
+        List<String> list1 = new ArrayList<>();
+        list1.add("Java");
+        list1.add("Python");
+        list1.add("C++");
+        list1.add("C#");
+
+        list1.forEach(data -> {
+            System.out.println(data);
+        });
+    }
+}
+
+
+
+2. Write a Java program to create List containing list of items and use ListIterator interface to print items
+present in the list. Also print the list in reverse/ backward direction.
+
+package practical_2;
+import java.util.*;
+public class Prac3 {
+public static void main(String[] args)
+{
+List<Integer> list1 = new ArrayList<>(); list1.add(1); list1.add(2);
+list1.add(3); list1.add(4);
+System.out.println(list1);
+ListIterator<Integer> li=list1.listIterator();
+System.out.println("Ordered"); while(li.hasNext())
+{ int e = li.next();
+System.out.println(e);
+}
+System.out.println("Reversed"); while(li.hasPrevious())
+{ int e1 = li.previous(); System.out.println(e1);
+}
+}
+}
+
+
+
+3. Write a Java program to create a Set containing list of items of type String and print the items in the list
+using Iterator interface. Also print the set elements in reverse/ backward direction
+
+
+
+
+package practical_2;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Set;
+
+public class prac4 {
+    public static void main(String[] args) {
+        // Create a Set of String items
+        Set<String> stringSet = new HashSet<>();
+
+        // Add items to the set
+        stringSet.add("Item 1");
+        stringSet.add("Item 2");
+        stringSet.add("Item 3");
+        stringSet.add("Item 4");
+        stringSet.add("Item 5");
+
+        // Print items in the set using Iterator
+        System.out.println("Printing items in the set:");
+        Iterator<String> iterator = stringSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        // Convert the Set to a List
+        List<String> stringList = new ArrayList<>(stringSet);
+
+        // Print the list in reverse using ListIterator
+        System.out.println("\nPrinting list in reverse:");
+        ListIterator<String> listIterator = stringList.listIterator(stringList.size());
+        while (listIterator.hasPrevious()) {
+            System.out.println(listIterator.previous());
+        }
+    }
+}
+
+
+
+4. Write a Java program using Set interface containing list of items and perform the following operations:
+    a. Add items in the set.
+    b. Insert items of one set in to other set.
+    c. Remove items from the set
+    d. Search the specified item in the set
+
+
+package practical_2;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class prac5 {
+    public static void main(String[] args) {
+
+        // Create two sets
+        Set<String> set1 = new HashSet<>();
+        Set<String> set2 = new HashSet<>();
+
+        // a. Add items to set1
+        set1.add("Item 1");
+        set1.add("Item 2");
+        set1.add("Item 3");
+
+        // Display set1
+        System.out.println("Set 1: " + set1);
+
+        // b. Insert items of set1 into set2
+        set2.addAll(set1);
+
+        // Display set2
+        System.out.println("Set 2 (after inserting items from set1): " + set2);
+
+        // c. Remove an item from set2
+        set2.remove("Item 2");
+
+        // Display set2 after removal
+        System.out.println("Set 2 (after removing 'Item 2'): " + set2);
+
+        // d. Search for an item in set1
+        String searchItem = "Item 3";
+        if (set1.contains(searchItem)) {
+            System.out.println("'" + searchItem + "' found in set1.");
+        } else {
+            System.out.println("'" + searchItem + "' not found in set1.");
+        }
+    }
+}
+
+
+
+
+
+5. Write a Java program using Map interface containing list of items having keys and associated values
+and perform the following operations:
+      a. Add items in the map.
+      b. Remove items from the map
+      c. Search specific key from the map
+      d. Get value of the specified key
+      e. Insert map elements of one map in to other map.
+      f. Print all keys and values of the map.
+
+
+
+
+package practical_2;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class prac6 {
+    public static void main(String[] args) {
+
+        // Create two maps
+        Map<String, Integer> map1 = new HashMap<>();
+        Map<String, Integer> map2 = new HashMap<>();
+
+        // a. Add items to map1
+        map1.put("Key1", 100);
+        map1.put("Key2", 200);
+        map1.put("Key3", 300);
+
+        // Display map1
+        System.out.println("Map 1: " + map1);
+
+        // b. Remove an item from map1
+        map1.remove("Key2");
+
+        // Display map1 after removal
+        System.out.println("Map 1 (after removing 'Key2'): " + map1);
+
+        // c. Search for a specific key in map1
+        String searchKey = "Key1";
+        if (map1.containsKey(searchKey)) {
+            System.out.println("'" + searchKey + "' found in map1.");
+        } else {
+            System.out.println("'" + searchKey + "' not found in map1.");
+        }
+
+        // d. Get the value associated with a specified key
+        String getKey = "Key3";
+        Integer getValue = map1.get(getKey);
+        System.out.println("Value associated with key '" + getKey + "': " + getValue);
+
+        // e. Insert map elements of map1 into map2
+        map2.putAll(map1);
+
+        // Display map2
+        System.out.println("Map 2 (after inserting elements from map1): " + map2);
+
+        // f. Print all keys and values of map1
+        System.out.println("All keys and values in map1:");
+        for (Map.Entry<String, Integer> entry : map1.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+    }
+}
+
+
+
+
+6. Write a Java program using Lambda Expression to print ”Hello World”.
+
+package practical_2;
+
+public class prac7 {
+    public static void main(String[] args) {
+        // Define a Lambda Expression to print "Hello World"
+        Runnable helloWorld = () -> {
+            System.out.println("Hello World");
+        };
+
+        // Execute the Lambda Expression
+        helloWorld.run();
+    }
+}
+
+
+
+7. Write a Java program using Lambda Expression with single parameters.|
+
+package practical_2;
+
+import java.util.function.Predicate;
+
+public class LambdaSingleParameter{
+
+    public static void main(String[] args) {
+
+        Predicate<Integer> isEven = x -> x % 2 == 0;
+
+        // Test the Lambda Expression
+        int number = 10;
+        if (isEven.test(number)) {
+            System.out.println(number + " is even.");
+        } else {
+            System.out.println(number + " is not even.");
+        }
+    }
+}
+
+
+
+
+8. Write a Java program using Lambda Expression with multiple
+parameters to add two numbers.
+
+
+package practical_2;
+
+public class LambdaAddition {
+
+    public static void main(String[] args) {
+        AddFunction add = (a, b) -> a + b;
+
+        // Test the Lambda Expression
+        int num1 = 5;
+        int num2 = 7;
+
+        int sum = add.addNumbers(num1, num2);
+        System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
+    }
+
+    // Functional interface to represent addition
+    @FunctionalInterface
+    interface AddFunction {
+        int addNumbers(int a, int b);
+    }
+}
+
+
+9. Write a Java program using Lambda Expression to calculate the following:
+    a. Convert Fahrenheit to Celcius
+    b. Convert Kilometers to Metres
+
+
+package practical_2;
+
+public class ConversionWithLambda {
+
+    public static void main(String[] args) {
+
+        // Lambda Expression to convert Fahrenheit to Celsius
+        TemperatureConverter fahrenheitToCelsius = fahrenheit -> (fahrenheit - 32) * 5 / 9;
+
+        // Lambda Expression to convert kilometers to meters
+        DistanceConverter kilometersToMeters = kilometers -> kilometers * 1000;
+
+        // Test the Lambda Expressions
+        double fahrenheitTemperature = 68.0;
+        double celsiusTemperature = fahrenheitToCelsius.convert(fahrenheitTemperature);
+        System.out.println(fahrenheitTemperature + "°F is equal to " + celsiusTemperature + "°C");
+
+        double kilometers = 5.0;
+        double meters = kilometersToMeters.convert(kilometers);
+        System.out.println(kilometers + " kilometers is equal to " + meters + " meters");
+    }
+
+    // Functional interface to represent temperature conversion
+    @FunctionalInterface
+    interface TemperatureConverter {
+        double convert(double fahrenheit);
+    }
+
+    // Functional interface to represent distance conversion
+    @FunctionalInterface
+    interface DistanceConverter {
+        double convert(double kilometers);
+    }
+}
+
+
+
+10. Write a Java program using Lambda Expression with return keyword.Find average of two numbers.
+
+
+package practical_2;
+
+public class LambdaAverage {
+    public static void main(String[] args) {
+        AverageCalculator averageCalculator = (num1, num2) -> (num1 + num2) / 2.0;
+
+        // Test the Lambda Expression
+        double number1 = 10.5;
+        double number2 = 15.5;
+        double average = averageCalculator.calculateAverage(number1, number2);
+        System.out.println("The average of " + number1 + " and " + number2 + " is: " + average);
+    }
+
+    // Functional interface to represent average calculation
+    @FunctionalInterface
+    interface AverageCalculator {
+        double calculateAverage(double num1, double num2);
+    }
+}
+
+
+11. Write a Java program using Lambda Expression to concatenate two strings.
+
+
+package practical_2;
+
+public class ConcatenateLambda {
+    public static void main(String[] args) {
+        StringConcatenator concatenator = (str1, str2) -> str1 + str2;
+
+        // Test the Lambda Expression
+        String string1 = "Hello, ";
+        String string2 = "World!";
+        String result = concatenator.concatenateStrings(string1, string2);
+        System.out.println("Concatenated String: " + result);
+    }
+
+    // Functional interface to represent string concatenation
+    @FunctionalInterface
+    interface StringConcatenator {
+        String concatenateStrings(String str1, String str2);
+    }
+}
